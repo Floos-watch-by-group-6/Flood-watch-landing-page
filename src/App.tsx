@@ -1,5 +1,6 @@
 import { MotionConfig } from 'motion/react'
 import Header from './components/Header'
+import FloatingNav from './components/FloatingNav'
 import Hero from './components/Hero'
 import FeatureSection from './components/FeatureSection'
 import LiveSection from './components/LiveSection'
@@ -16,6 +17,7 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <div className="min-h-svh w-full overflow-x-hidden bg-white font-sans">
         <Header />
+        <FloatingNav />
         <Hero />
         <FeatureSection />
         <LiveSection />

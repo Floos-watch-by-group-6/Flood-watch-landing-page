@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     /* pb closes the white gap the frame keeps between the phone (ends y=1085)
        and the dark section (starts y=1206). */
-    <section className="relative overflow-hidden pb-[121px]">
+    <section id="hero" className="relative overflow-hidden pb-[121px]">
       <div className="mx-auto mt-[56px] flex max-w-[827px] flex-col items-center gap-[12px] px-6 text-center">
         <motion.div className="flex items-start gap-[6px]" {...rise(0.05)}>
           <p className="whitespace-nowrap text-[14px] font-normal leading-[20px] tracking-[-0.5px] text-muted">
