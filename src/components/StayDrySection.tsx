@@ -1,6 +1,7 @@
 import { BlurFade } from '@/components/ui/blur-fade'
 import VectorIcon from './VectorIcon'
 import doodleBand from '@/assets/doodle-band.webp'
+import { APP_URL } from '../links'
 
 /**
  * "Stay dry out there." — section six (Figma 2006:18739, 1440×532 at frame
@@ -37,7 +38,7 @@ export default function StayDrySection() {
         <BlurFade inView delay={0.1}>
           {/* Coral here, unlike the white button in the dark section. */}
           <a
-            href="#"
+            href={APP_URL}
             className="flex h-[56px] items-center justify-center gap-[8px] rounded-[24px] bg-flame px-[32px] py-[12px] text-[16px] font-medium leading-[24px] sm:text-[20px] sm:leading-[32px] text-white transition-transform duration-200 hover:-translate-y-0.5"
           >
             <VectorIcon

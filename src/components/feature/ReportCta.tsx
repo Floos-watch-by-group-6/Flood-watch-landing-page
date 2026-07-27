@@ -1,5 +1,6 @@
 import VectorIcon from '../VectorIcon'
 import eyes from '@/assets/eyes.webp'
+import { APP_URL } from '../../links'
 
 /**
  * "See it. Report it." — the closing CTA (Figma 2006:18604).
@@ -119,7 +120,7 @@ export default function ReportCta() {
       </div>
 
       <a
-        href="#"
+        href={APP_URL}
         className="flex h-[56px] items-center justify-center gap-[8px] rounded-[24px] bg-white px-[32px] py-[12px] text-[16px] font-medium leading-[24px] sm:text-[20px] sm:leading-[32px] text-ink transition-transform duration-200 hover:-translate-y-0.5"
       >
         <VectorIcon

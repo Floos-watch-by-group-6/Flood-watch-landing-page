@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import VectorIcon from './VectorIcon'
 import MobileNavMenu from './MobileNavMenu'
+import { APP_URL } from '../links'
 
 const NAV_LINKS = ['Live Zones', 'Community', 'Volunteers', 'Help Center']
 
@@ -44,7 +45,7 @@ export default function Header() {
         </nav>
 
         <a
-          href="#"
+          href={APP_URL}
           className="group hidden shrink-0 items-center gap-[4px] text-[18px] font-medium leading-[24px] tracking-[-1px] text-ink lg:flex"
         >
           <span className="whitespace-nowrap">Get the app</span>

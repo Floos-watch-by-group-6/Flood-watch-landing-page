@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import VectorIcon from './VectorIcon'
 import MobileNavMenu from './MobileNavMenu'
+import { APP_URL } from '../links'
 
 /**
  * "Floating Nav bar" (Figma 2153:17091) — a pill that replaces the static
@@ -89,7 +90,7 @@ export default function FloatingNav() {
         </ul>
 
         <a
-          href="#"
+          href={APP_URL}
           className="hidden shrink-0 items-center gap-[4px] rounded-[24px] bg-ink py-[8px] pl-[24px] pr-[16px] transition-transform duration-200 hover:-translate-y-0.5 lg:flex"
         >
           <span className="whitespace-nowrap text-[18px] font-medium leading-[24px] tracking-[-1px] text-white">

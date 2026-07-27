@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import VectorIcon from './VectorIcon'
+import { APP_URL } from '../links'
 
 /**
  * Below lg, both navs swap their "Get the app" button for this hamburger. The
@@ -112,7 +113,7 @@ export default function MobileNavMenu({ panelOffset = 12 }: Props) {
             </ul>
 
             <a
-              href="#"
+              href={APP_URL}
               onClick={() => setOpen(false)}
               className="mt-[20px] flex items-center justify-center gap-[4px] rounded-[24px] bg-ink py-[10px]"
             >
