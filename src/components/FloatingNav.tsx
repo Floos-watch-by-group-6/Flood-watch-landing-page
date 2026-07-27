@@ -56,15 +56,18 @@ export default function FloatingNav() {
           ? { duration: 0 }
           : { duration: 0.42, ease: [0.16, 1, 0.3, 1] }
       }
-      // Never intercept clicks while parked off-screen.
-      style={{ pointerEvents: show ? 'auto' : 'none' }}
+      /* The wrapper spans the full viewport width but only the pill inside is
+         visible, so it must never take clicks — otherwise it forms an invisible
+         bar across the top of the page that swallows anything beneath it. Hit
+         testing is re-enabled on the pill itself, below. */
+      style={{ pointerEvents: 'none' }}
       aria-hidden={!show}
     >
       <nav
         /* justify-center suits the three-item desktop row; with only the logo
            and hamburger left below lg they would bunch in the middle. */
         className="mx-auto flex w-full max-w-[712px] items-center justify-between gap-[24px] rounded-[48px] bg-white px-[32px] py-[16px] lg:justify-center"
-        style={{ boxShadow: PILL_SHADOW }}
+        style={{ boxShadow: PILL_SHADOW, pointerEvents: show ? 'auto' : 'none' }}
       >
         <a href="#" aria-label="Floodwatch home" className="shrink-0 p-[10.8px]">
           <img
