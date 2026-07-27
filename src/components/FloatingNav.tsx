@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import VectorIcon from './VectorIcon'
+import MobileNavMenu from './MobileNavMenu'
 
 /**
  * "Floating Nav bar" (Figma 2153:17091) — a pill that replaces the static
@@ -59,7 +60,9 @@ export default function FloatingNav() {
       aria-hidden={!show}
     >
       <nav
-        className="mx-auto flex w-full max-w-[712px] items-center justify-center gap-[24px] rounded-[48px] bg-white px-[32px] py-[16px]"
+        /* justify-center suits the three-item desktop row; with only the logo
+           and hamburger left below lg they would bunch in the middle. */
+        className="mx-auto flex w-full max-w-[712px] items-center justify-between gap-[24px] rounded-[48px] bg-white px-[32px] py-[16px] lg:justify-center"
         style={{ boxShadow: PILL_SHADOW }}
       >
         <a href="#" aria-label="Floodwatch home" className="shrink-0 p-[10.8px]">
@@ -87,7 +90,7 @@ export default function FloatingNav() {
 
         <a
           href="#"
-          className="flex shrink-0 items-center gap-[4px] rounded-[24px] bg-ink py-[8px] pl-[24px] pr-[16px] transition-transform duration-200 hover:-translate-y-0.5"
+          className="hidden shrink-0 items-center gap-[4px] rounded-[24px] bg-ink py-[8px] pl-[24px] pr-[16px] transition-transform duration-200 hover:-translate-y-0.5 lg:flex"
         >
           <span className="whitespace-nowrap text-[18px] font-medium leading-[24px] tracking-[-1px] text-white">
             Get the app
@@ -99,6 +102,8 @@ export default function FloatingNav() {
             bleed="-3.75% -5.77%"
           />
         </a>
+
+        <MobileNavMenu panelOffset={32} />
       </nav>
     </motion.div>
   )

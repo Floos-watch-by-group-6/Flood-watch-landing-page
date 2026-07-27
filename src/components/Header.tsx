@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import VectorIcon from './VectorIcon'
+import MobileNavMenu from './MobileNavMenu'
 
 const NAV_LINKS = ['Live Zones', 'Community', 'Volunteers', 'Help Center']
 
@@ -44,7 +45,7 @@ export default function Header() {
 
         <a
           href="#"
-          className="group flex shrink-0 items-center gap-[4px] text-[18px] font-medium leading-[24px] tracking-[-1px] text-ink"
+          className="group hidden shrink-0 items-center gap-[4px] text-[18px] font-medium leading-[24px] tracking-[-1px] text-ink lg:flex"
         >
           <span className="whitespace-nowrap">Get the app</span>
           <VectorIcon
@@ -55,6 +56,8 @@ export default function Header() {
             className="transition-transform duration-200 group-hover:-translate-y-0.5"
           />
         </a>
+
+        <MobileNavMenu />
       </div>
     </motion.header>
   )
