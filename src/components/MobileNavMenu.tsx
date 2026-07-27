@@ -58,7 +58,7 @@ export default function MobileNavMenu({ panelOffset = 12 }: Props) {
   }, [open])
 
   return (
-    <div ref={rootRef} className="relative shrink-0 lg:hidden">
+    <div ref={rootRef} className="relative shrink-0 md:hidden">
       <button
         ref={toggleRef}
         type="button"

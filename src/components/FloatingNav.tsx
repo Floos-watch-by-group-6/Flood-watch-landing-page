@@ -66,10 +66,10 @@ export default function FloatingNav() {
       <nav
         /* justify-center suits the three-item desktop row; with only the logo
            and hamburger left below lg they would bunch in the middle. */
-        className="mx-auto flex w-full max-w-[712px] items-center justify-between gap-[24px] rounded-full bg-white px-[24px] py-[10px] lg:justify-center"
+        className="mx-auto flex w-full max-w-[712px] items-center justify-between gap-[24px] rounded-full bg-white px-[24px] py-[10px] md:justify-center md:rounded-[48px] md:px-[32px] md:py-[16px]"
         style={{ boxShadow: PILL_SHADOW, pointerEvents: show ? 'auto' : 'none' }}
       >
-        <a href="#" aria-label="Floodwatch home" className="shrink-0">
+        <a href="#" aria-label="Floodwatch home" className="shrink-0 md:p-[10.8px]">
           <img
             src="/assets/logo.svg"
             alt="Floodwatch"
@@ -79,7 +79,7 @@ export default function FloatingNav() {
           />
         </a>
 
-        <ul className="hidden items-center gap-[24px] lg:flex">
+        <ul className="hidden items-center gap-[24px] md:flex">
           {NAV_LINKS.map((label) => (
             <li key={label}>
               <a
@@ -94,14 +94,14 @@ export default function FloatingNav() {
 
         <a
           href={APP_URL}
-          className="hidden shrink-0 items-center gap-[4px] rounded-full bg-ink py-[6px] pl-[20px] pr-[14px] transition-transform duration-200 hover:-translate-y-0.5 lg:flex"
+          className="hidden shrink-0 items-center gap-[4px] rounded-[24px] bg-ink py-[8px] pl-[24px] pr-[16px] transition-transform duration-200 hover:-translate-y-0.5 md:flex"
         >
-          <span className="whitespace-nowrap text-[16px] font-medium leading-[24px] tracking-[-0.5px] text-white">
+          <span className="whitespace-nowrap text-[18px] font-medium leading-[24px] tracking-[-1px] text-white">
             Get the app
           </span>
           <VectorIcon
             src="/assets/icons/smartphone-white.svg"
-            size={20}
+            size={24}
             inset="8.33% 22.92%"
             bleed="-3.75% -5.77%"
           />

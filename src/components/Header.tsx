@@ -29,7 +29,7 @@ export default function Header() {
 
         {/* Centred on the viewport axis, as in the design — not between the
             logo and CTA, which would sit ~30px left of the frame centre. */}
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 lg:block">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 md:block">
           <ul className="flex items-center gap-[36px]">
             {NAV_LINKS.map((label) => (
               <li key={label}>
@@ -46,7 +46,7 @@ export default function Header() {
 
         <a
           href={APP_URL}
-          className="group hidden shrink-0 items-center gap-[4px] text-[18px] font-medium leading-[24px] tracking-[-1px] text-ink lg:flex"
+          className="group hidden shrink-0 items-center gap-[4px] text-[18px] font-medium leading-[24px] tracking-[-1px] text-ink md:flex"
         >
           <span className="whitespace-nowrap">Get the app</span>
           <VectorIcon
