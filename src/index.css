@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+/* Design tokens lifted from the Figma variable set (Flood-Watch / Desktop - 21). */
+@theme {
+  --font-sans: 'Outfit Variable', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  /* Colors/Dirty-Blue */
+  --color-ink: #262537; /* Dirty-Blue/500 — headings, card titles */
+  --color-body: #6e6e7a; /* Dirty-Blue/300 — body copy, nav links */
+  --color-muted: #b7b6bc; /* Dirty-Blue/100 — eyebrow, card subtitles */
+
+  /* Dark "Verified pin" section */
+  --color-night: #030e15; /* section background */
+  --color-night-top: #000b11; /* card gradient start */
+  --color-night-deep: #051722; /* Cute-Blue/900 — card gradient end */
+  --color-mist: #d4d3d7; /* Dirty-Blue/50 — body copy on dark */
+
+  /* Supporting */
+  --color-divider: #f6f5fe; /* Section Divider Color — avatar rings */
+  --color-mint: #def4ef; /* Color/Green/50 — verified icon chip */
+  --color-tick: #4ca793;
+  --color-danger: #f81100;
+  --color-cute-500: #0e4567; /* feedback card title */
+  --color-cute-400: #366480; /* feedback card subtitle */
+  --color-flame: #fd5f53; /* Flame — the coral CTA button */
+}
+
+/* The hero composition is authored at a fixed 1440px stage, matching the Figma
+   frame. Rather than re-flowing the scattered cards at every breakpoint, the
+   whole stage scales as a unit and its wrapper height follows via calc(). */
+:root {
+  --stage-scale: 1;
+  /* The in-card app mockups are fixed 428px designs; they scale rather than
+     reflow, since their internals are sub-pixel-tuned at that width. */
+  --panel-scale: 1;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --panel-scale: 0.74;
+  }
+}
+
+@media (max-width: 440px) {
+  :root {
+    --panel-scale: 0.62;
+  }
+}
+
+/* The light section's phone cluster is authored in the frame's 1071px space and
+   is pure imagery, so scaling it is fine (unlike the report rows, whose text
+   has to stay readable — those reflow instead). Below lg the stage is centred
+   on the phones themselves, not on the 1071px box, and the wrapper's height
+   follows the scaled content so no dead space is left underneath. */
+:root {
+  --phones-s: 0.8;
+}
+
+@media (max-width: 899px) {
+  :root {
+    --phones-s: 0.62;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --phones-s: 0.52;
+  }
+}
+
+@media (max-width: 599px) {
+  :root {
+    --phones-s: 0.42;
+  }
+}
+
+@media (max-width: 439px) {
+  :root {
+    --phones-s: 0.3;
+  }
+}
+
+.phone-viz {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: calc(760px * var(--phones-s));
+}
+
+/* 797px is the phone cluster's horizontal centre in frame coordinates; 120px
+   lifts its top edge to the box top. */
+.phone-viz > .phone-stage {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1071px;
+  height: 539px;
+  transform-origin: top left;
+  transform: translate(
+      calc(-797px * var(--phones-s)),
+      calc(120px * var(--phones-s))
+    )
+    scale(var(--phones-s));
+}
+
+@media (min-width: 1119px) {
+  .phone-viz {
+    position: absolute;
+    inset: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  .phone-viz > .phone-stage {
+    left: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 1439px) {
+  :root {
+    --stage-scale: 0.85;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --stage-scale: 0.62;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --stage-scale: 0.5;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Respect users who ask the OS to reduce motion. Motion's useReducedMotion
+   handles the JS-driven animation; this covers CSS transitions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
